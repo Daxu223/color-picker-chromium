@@ -34,7 +34,7 @@ A Chromium-based extension that lets you customize the colors of any website. Ch
 git clone https://github.com/daxu223/color-changer.git
 cd color-changer
 
-# No build step needed - it's ready to load in Chrome
+# No build step needed
 ```
 
 ## Project Structure
