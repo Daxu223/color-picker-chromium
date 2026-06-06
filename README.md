@@ -1,14 +1,13 @@
 # Color Changer
 
-A Chrome extension that lets you customize the colors of any website. Change background colors, save your preferences per-site, and instantly revert to defaults—all with a simple popup interface.
+A Chromium-based extension that lets you customize the colors of any website. Change background colors, save your preferences per-site, and instantly revert to defaults.
 
 ## Features
 
-- 🎨 **Color Customization** - Identify and change background colors on any website
-- 💾 **Persistent Storage** - Your color preferences are saved per-site and survive page refreshes
-- 🔄 **Dynamic Content Support** - Works with websites that load content dynamically
-- ⚡ **One-Click Reset** - Revert to original colors instantly with the reset button
-- 🌐 **Works Everywhere** - Compatible with any website
+- Color Customization - Identify and change background colors on any website
+- Persistent Storage - Your color preferences are saved per-site and survive page refreshes
+- Dynamic Content Support - Works with websites that load content dynamically
+- Reset button - Revert to original colors instantly with the reset button
 
 ## How It Works
 
@@ -21,17 +20,18 @@ A Chrome extension that lets you customize the colors of any website. Change bac
 
 ## Installation
 
-### For Users
+### End-user
 1. Download or clone this repository
-2. Open Chrome and go to `chrome://extensions/`
+2. Open a Chromium-based browser and go to `[browser]://extensions/`
+- Tested on the Brave browser
 3. Enable **Developer mode** (top-right toggle)
 4. Click **Load unpacked** and select the project folder
 5. The Color Changer icon will appear in your toolbar
 
-### For Developers
+### Developers
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/color-changer.git
+git clone https://github.com/daxu223/color-changer.git
 cd color-changer
 
 # No build step needed - it's ready to load in Chrome
@@ -41,50 +41,28 @@ cd color-changer
 
 ```
 color-changer/
-├── manifest.json       # Chrome extension configuration
-├── content.js          # Page color detection & manipulation
-├── popup.js            # Extension popup logic
-├── view.html           # Extension popup UI
-├── styles.css          # Popup styling
-├── icon.png            # Extension icon (add this)
-└── README.md           # This file
+├── manifest.json
+├── src/
+│   ├── content/
+│   │   └── content.js
+│   └── popup/
+│       ├── popup.js
+│       ├── popup.html
+│       └── popup.css
+├── README.md
 ```
 
-## Technical Details
-
-### Architecture
-- **Content Script** (`content.js`) - Runs on the webpage to detect and modify colors
-- **Popup Script** (`popup.js`) - Manages the extension's user interface
-- **Storage** - Uses Chrome's `chrome.storage.local` API for per-site persistence
+- (`content.js`) - Reads the page and applies listeners to components, so that they can be changed.
+- (`popup.js`) - Manages the view of the application and sends actions to the content script.
 
 ### Key Features
-- Per-site color mapping using `colorMap_[hostname]` keys
-- MutationObserver for dynamically-loaded content support
-- Hex↔RGB color conversion for color picker compatibility
-- Chrome Manifest V3 (modern standard)
-
-## Troubleshooting
-
-**Colors not changing?**
-- Ensure the extension has permission to access the website
-- Some websites use complex CSS that may prevent color changes
-- Try refreshing the page after changing a color
-
-**Colors not saving?**
-- Clear your browser cache and reload the extension
-- Check that local storage isn't disabled in your browser
+- Uses chrome.storage API to store keys as `colorMap_[hostname]` keys and apply them to the site you are visiting
+- Uses MutationObserver to apply changes that might happen after loading the site.
 
 ## Contributing
 
 Feel free to fork, enhance, and submit improvements!
 
-## License
+## Future
 
-MIT License - see LICENSE file for details
-
-## Future Enhancements
-
-- Text color customization
-- Border and shadow color support
-- Import/export color schemes
-- Sync preferences across devices
+Testing, using and developing it based on the bugs.
