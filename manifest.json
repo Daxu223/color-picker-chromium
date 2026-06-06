@@ -1,0 +1,19 @@
+{
+    "name": "Color Picker",
+    "description": "Let's you change the colors of the website!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "/src/view.html",
+        "default_icon": "/images/icon.png"
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["src/content.js"],
+            "run_at": "document_idle"
+
+        }
+    ],
+     "permissions": ["tabs", "activeTab", "storage"]
+}

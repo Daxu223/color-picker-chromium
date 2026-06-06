@@ -1,0 +1,33 @@
+/* Ensure the extension window itself is wide enough to see everything */
+body {
+  width: 130px; 
+  padding: 5px;
+  margin: 10px;
+  font-family: sans-serif;
+}
+
+/* Arrange the row so the pill is on the left and picker is on the right */
+.color-pair {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3px;
+  height: 35px;
+  width: 100%;
+}
+
+/* Give your found-color div a physical size and shape */
+.found-color {
+  width: 100px;
+  height: 18px;
+  border-radius: 2px;
+  margin-right: 5px;
+}
+
+/* Give your color-picker element a physical size */
+.color-picker {
+  width: 140px;
+  height: 28px;
+  border: none;
+  cursor: pointer;
+}
